@@ -1,0 +1,130 @@
+
+#page-landing{
+    background: var(--color-primary);
+}
+
+#page-landing #container{
+    color: var(--color-text-in-primary);
+}
+
+.logo-container img{
+    height: 10rem; /*alterando a altura da imagem*/
+}
+
+.logo-container{
+    text-align: center; /*Alinha o texto que esta dentro dessa classe e a tag img que herda tambem caracteristicas de teags de textos */
+    margin-bottom: 3.2rem;
+}
+
+.logo-container h2{
+    font-weight: 700;
+    font-size: 3.6rem;
+    line-height:4.6rem; /*Altura da linha do texto*/
+    margin-top: 0.8rem;
+}
+.image{
+    width: 100%; /*mostra a imagem dentro da porcentagem determinada dentro do container pai*/
+}
+
+.buttons{
+    /*Alinhas os botões ao centro do container*/
+    display: flex;
+    justify-content: center;
+    margin: 3.2rem 0;
+}
+
+.buttons a{
+    /*Alinhaamento dos elementos a*/
+    width: 30rem;/*Largura do botão*/
+    height: 10.4rem;/*Altura do botão*/
+    border-radius: 0.8rem;
+    margin-right: 1.6rem; /*Margin direita do botão*/
+
+    display: flex;/*para conseguir mexer com os itens dentro do botão*/
+    align-items: center; /*alinhas todos os itens centralizados uns com os outros dentro da caixa*/
+    justify-content: center;/*Alinhar o conteudo do botões ao centro da caixa*/
+
+    font: 700 2.4rem Archivo;
+
+    text-decoration: none; /*Retirar o sublinhado do texto*/
+
+    transition: background 0.2s;/* deixar a transicição quando de cor quando passar o mouse em cima do botão*/
+
+    color: var(--color-button-text);
+}
+.buttons a img{
+    width: 4rem; /*Pegar todas a tags img que estão dentro de buttons e aplicar a largura*/
+    margin-right: 2.4rem;
+}
+.buttons a.study{
+    background: var(--color-primary-lighter);
+}
+.buttons a.study:hover{
+background: var(--color-primary-light);
+}
+
+.buttons a.give-classes{
+    background: var(--color-secondary);
+    margin-right: 0; /*Margin direita do botão*/
+}
+
+.buttons a.give-classes:hover{
+    background: var(--color-secondary-dark);
+}
+
+.total-connections{
+    font-size: 1.8rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.total-connections img{
+    margin-left: 0.8rem;
+}
+/*será aplicado as configurações padrões até essa Medida*/
+@media(max-width: 699px){
+    :root{
+        font-size: 40%; /* modificar as medidas rem */
+    }
+}
+/*Sera aplicado apartir dessa largura de tela para cima*/
+@media(min-width: 1100px){
+    #page-landing #container{/*quando ele verificar que esses ids atingiram 1100px aplica essa parte*/
+        max-width: 1100px;
+        display: grid;/*Aviso o container que estou utilizando grid*/
+        grid-template-columns: 2fr 1fr 2fr;/*Define o fracionamento do grid na tela*/
+        grid-template-rows: 350px 1fr; /*Define a largura da linha e qual fracionamento dela*/
+        grid-template-areas: /*Define as areas que serão aplicados os respectivos conteudos no fracionamentos columns e rows*/
+         "Proffy image image"
+         "button button texting";
+         /*gap: 60px; /*Para colocar espaçamento entre os grids*/
+         column-gap: 87px; /*Aumentar o espaçamento entre as colunas dos grids*/
+         row-gap: 86px; /*Aumentar o espaçamento entre as linhas dos grids*/
+    }
+    .logo-container{
+        grid-area: Proffy;
+        text-align: initial;
+        align-self: center;/*Não deixa o conteudo do grid escapar dos limites e centraliza ele*/
+        margin: 0;
+    }
+
+    .logo-container img{
+        height: 127px;/*Altura do logo*/
+    }
+    .image{
+        grid-area: image;
+    }
+    .buttons{
+        grid-area: button;
+        justify-content: flex-start; /*Sobrescreve a primeira configuração e coloca os botões na posição inicial*/
+        margin: 0;
+    }
+    .total-connections{
+        grid-area: texting;
+        justify-content: flex-end;
+        font-size: 1.7rem;
+    }
+
+}
